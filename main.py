@@ -7,7 +7,7 @@ def get_birthdays_per_week(users):
   today = datetime.now().date()
 # Визначаємо дату понеділка на поточному тижні
   monday = (today - timedelta(days=today.weekday()))
-#   print(monday)
+  
 
   next_monday = monday + timedelta(weeks=1)
 #   print(next_monday)
