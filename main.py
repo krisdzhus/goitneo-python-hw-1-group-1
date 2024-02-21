@@ -36,7 +36,6 @@ def get_birthdays_per_week(users: list[dict]):
 
     print(birthday_dict)
 
-
 # Тестуємо
 users = [
   {"name": "Bill Gates", "birthday": datetime(1955, 10, 28)},
