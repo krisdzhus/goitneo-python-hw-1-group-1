@@ -14,10 +14,10 @@ def change_contact(args, contacts):
     return "Contact updated"
 
 def show_phone(args, contacts):
-    name = args
+    name = args[0]
     return print(contacts[name])
 
-def show_all():
+def show_all(contacts):
     return print(contacts)
 
 def main():
@@ -37,9 +37,9 @@ def main():
         elif command == "change":
             print(change_contact(args, contacts))
         elif command == "phone":
-            print(change_contact(args, contacts))
+            print(show_phone(args, contacts))
         elif command == "all":
-            print(change_contact(args, contacts))
+            print(show_all(contacts))
         else:
             print("Invalid command.")
         
