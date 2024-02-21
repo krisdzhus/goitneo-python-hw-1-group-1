@@ -7,32 +7,34 @@ def get_birthdays_per_week(users):
   today = datetime.now().date()
 # Визначаємо дату понеділка на поточному тижні
   monday = (today - timedelta(days=today.weekday()))
-  
 
+# Визначаємо дату понеділка на наступному тижні
   next_monday = monday + timedelta(weeks=1)
-#   print(next_monday)
 
+# Визначаємо дату останнього дня на наступному тижні
   end_of_next_week = next_monday + timedelta(days=7)
 
   #Аналіз дати народження
   birthday_dict = {}
-#   weekday = None
   for user in users:  
         #Отримуємо дату народження
         birthday = user["birthday"].date()
         birthday_this_year = birthday.replace(year=today.year)
-
+  # Перевіряємо, чи вже минув день народження цього року
         if birthday_this_year < today:
+  # Якщо так, то розглядаємо дату на наступний рік
             birthday_this_year = birthday.replace(year=today.year+1)
 
-
-        # Перевіряємо чи ця дата наступного тижн
-        
+    # Перевіряємо чи ця дата наступного тижня
         if next_monday <= birthday_this_year < end_of_next_week:
             weekday = birthday_this_year.strftime('%A')
-            # if weekday == "Saturday" or weekday == "Sunday":
-                
-            birthday_dict[weekday] = user["name"]
+            if weekday == "Saturday" or weekday == "Sunday":
+                weekday = 'Monday'
+
+            if weekday not in birthday_dict:
+                birthday_dict[weekday] = []
+            
+            birthday_dict[weekday].append(user['name'])
 
   print(birthday_dict)
 
