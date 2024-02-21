@@ -15,10 +15,10 @@ def change_contact(args, contacts):
 
 def show_phone(args, contacts):
     name = args[0]
-    return print(contacts[name])
+    return contacts[name]
 
 def show_all(contacts):
-    return print(contacts)
+    return contacts
 
 def main():
     contacts = {}
