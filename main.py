@@ -48,3 +48,7 @@ users = [
 ]
 
 get_birthdays_per_week(users)
+
+
+if __name__ == "__main__":
+    main()
